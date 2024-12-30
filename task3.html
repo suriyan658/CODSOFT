@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Menu</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #000;
+      color: #FFD700;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .menu-container {
+      padding: 20px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .menu-header {
+      text-align: center;
+      font-size: 36px;
+      color: #FFD700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .search-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .search-bar {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 2px solid #FFD700;
+      background-color: #333;
+      color: #FFD700;
+      outline: none;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255, 255, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(255, 255, 0, 0.5);
+    }
+
+    .menu-item .item-info {
+      flex-grow: 1;
+      margin-right: 20px;
+    }
+
+    .menu-item .item-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    .menu-item .item-description {
+      font-size: 14px;
+      color: #FFD700;
+      margin-bottom: 12px;
+    }
+
+    .menu-item .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    .menu-item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .add-to-cart-btn {
+      padding: 10px 15px;
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #FFC107;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #FFD700;
+      color: #000;
+      font-size: 18px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .bottom-nav a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .order-btn {
+      padding: 12px 20px;
+      background-color: #000;
+      color: #ff4d00;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .order-btn:hover {
+      background-color: #333;
+    }
+
+    /* Mobile Friendly */
+    @media (max-width: 768px) {
+      .menu-container {
+        padding: 15px;
+      }
+
+      .menu-item {
+        padding: 12px;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu-item img {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Header -->
+  <h1 class="menu-header">Restaurant Menu</h1>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="search-bar" class="search-bar" placeholder="Search for a dish..." onkeyup="filterMenu()">
+  </div>
+
+  <!-- Menu Content -->
+  <div id="menu-container" class="menu-container">
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Briyani</div>
+       
+        <div class="price">₹320</div>
+      </div>
+      <img src="https://i.pinimg.com/564x/c5/d2/62/c5d262f3377da91a7229772026a2ec5c.jpg" alt="Bruschetta Image">
+      <button class="add-to-cart-btn" onclick="addToCart('Bruschetta')">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Grilled Chicken</div>
+        <div class="item-description">Juicy grilled chicken with a savory seasoning.</div>
+        <div class="price">₹430</div>
+      </div>
+      <img src="https://leitesculinaria.com/wp-content/uploads/2020/05/grilled-roasted-chicken-500x500.jpg" alt="Grilled Chicken Image">
+      <button class="add-to-cart-btn" onclick="addToCart('Grilled Chicken')">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Chocolate Cake</div>
+        <div class="item-description">Decadent chocolate cake with creamy frosting.</div>
+        <div class="price">₹69</div>
+      </div>
+      <img src="https://butternutbakeryblog.com/wp-content/uploads/2023/04/chocolate-cake.jpg" alt="Chocolate Cake Image">
+      <button class="add-to-cart-btn" onclick="addToCart('Chocolate Cake')">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Vegetable Lasagna</div>
+        <div class="item-description">Layered pasta with vegetables and a rich tomato sauce.</div>
+        <div class="price">₹129</div>
+      </div>
+      <img src="https://cookingwithque.com/wp-content/uploads/2023/08/opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__11__Vegetarian-Lasagna-LEAD-1-6173a71bfd1347aa8d7659150e87b8f4.jpg" alt="Vegetable Lasagna Image">
+      <button class="add-to-cart-btn" onclick="addToCart('Vegetable Lasagna')">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="bottom-nav">
+    <a href="#">Home</a>
+    <a href="#">Cart</a>
+    <a href="#">Profile</a>
+    <button class="order-btn">Order Now</button>
+  </div>
+
+  <script>
+    function addToCart(itemName) {
+      alert(`₹{itemName} has been added to your cart!`);
+    }
+
+    function filterMenu() {
+      const searchValue = document.getElementById("search-bar").value.toLowerCase();
+      const menuItems = document.querySelectorAll(".menu-item");
+
+      menuItems.forEach(item => {
+        const itemName = item.querySelector(".item-name").textContent.toLowerCase();
+        if (itemName.includes(searchValue)) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
