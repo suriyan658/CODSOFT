@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1e1e1e;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        .app-container {
+            max-width: 420px;
+            margin: 20px auto;
+            background: #2b2b2b;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .header {
+            background: #ff0000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-family: Impact, 'Arial Black', sans-serif;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #ffae00;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            background: #444;
+            padding: 10px 0;
+        }
+        .menu button {
+            background: #ffae00;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .menu button:hover {
+            background: #ff5e00;
+            transform: scale(1.1);
+        }
+        .content {
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.8;
+        }
+        .card {
+            background: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .card h3 {
+            margin: 0 0 10px;
+            color: #ffae00;
+        }
+        .card p {
+            margin: 0;
+            color: #ddd;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .cta {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .cta button {
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cta button:hover {
+            background: #cc0000;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <h1>codsoft</h1>
+        </div>
+        <div class="menu">
+            <button>Dashboard</button>
+            <button>Features</button>
+            <button>Contact</button>
+        </div>
+        <div class="content">
+            <div class="card">
+                <img src="https://substackcdn.com/image/fetch/w_520,h_272,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8da77dd5-d1cf-4372-809d-5e5b49f07665_1500x792.png" alt="Modern Design">
+                <h3>Modern Design</h3>
+                <p>Crafted with high-contrast colors and bold, striking fonts for a professional look.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.digitalsilk.com/wp-content/uploads/2023/04/how-to-make-user-friendly-website.png" alt="User-Friendly Interface">
+                <h3>User-Friendly</h3>
+                <p>Navigate seamlessly through intuitive and structured menus.</p>
+            </div>
+            <div class="card">
+                <img src="https://media.licdn.com/dms/image/D4D12AQGWrJvwo82aEw/article-cover_image-shrink_720_1280/0/1694253191391?e=2147483647&v=beta&t=xui0rj52nazHDs5gDM_VGE0j-3XqXziJvwxn6SnI8n8" alt="Responsive Layout">
+                <h3>Responsive Layout</h3>
+                <p>Perfectly optimized for all devices, ensuring a smooth experience.</p>
+            </div>
+        </div>
+        <div class="cta">
+            <button>🚀 Start Your Journey 🚀</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
